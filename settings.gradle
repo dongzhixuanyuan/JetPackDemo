@@ -1,1 +1,1 @@
-include ':ViewModelDemo'
+include ':ViewModelDemo', ':ViewmodelWithLivedata', ':basemodule', ':roompaging'

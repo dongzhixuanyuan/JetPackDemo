@@ -1,4 +1,4 @@
-package com.ld.jetpackdemo
+package com.ld.viewmodelwithlivedata
 
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
@@ -9,7 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import com.ld.viewmodelwithlivedata.R
 import kotlinx.android.synthetic.main.blank_fragment.*
+import kotlinx.android.synthetic.main.blank_fragment.view.*
 
 
 class BlankFragment01 : Fragment() {
@@ -32,7 +34,12 @@ class BlankFragment01 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 //        kotlin中可以直接使用布局文件中的控件id来操作该view，但是前提是在onViewCreated中使用。
         increase.setOnClickListener {
-            viewModel.number++
+            if (viewModel.number.value == null) {
+                viewModel.number.value=1
+            }else{
+                var value = viewModel.number.value
+                viewModel.number.value = value?.inc()
+            }
         }
     }
 
@@ -48,7 +55,7 @@ class BlankFragment01 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        number_tv.setText(viewModel.number.toString())
+        number_tv_01.setText(viewModel.score.value?.toString())
     }
 
 }
