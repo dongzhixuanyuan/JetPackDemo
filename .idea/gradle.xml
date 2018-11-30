@@ -10,7 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/ViewModelDemo" />
             <option value="$PROJECT_DIR$/ViewmodelWithLivedata" />
-            <option value="$PROJECT_DIR$/basemodule" />
+            <option value="$PROJECT_DIR$/lib_common" />
             <option value="$PROJECT_DIR$/roompaging" />
           </set>
         </option>
