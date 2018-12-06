@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import me.ele.uetool.UETool
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +17,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        UETool.showUETMenu()
+    }
 
 }
