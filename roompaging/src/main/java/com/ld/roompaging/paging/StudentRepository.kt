@@ -27,8 +27,11 @@ class StudentRepository(private val db: StudentDb) {
     }
 
     fun addStudents(students:List<Student>){
-
         db.getStudentDao().insert(students)
+    }
+
+    fun updateStudent(student: Student) {
+        db.getStudentDao().updateStudentByName(student)
     }
 
 }

@@ -26,6 +26,19 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class BlankFragment02 : Fragment() {
+
+    private lateinit var viewModel: BlankViewModel
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        viewModel = ViewModelProviders.of(activity as FragmentActivity).get(BlankViewModel::class.java)
+        viewModel.score.observe(activity as FragmentActivity,object :Observer<Int?>{
+            override fun onChanged(t: Int?) {
+                number_tv.text = t?.toString()
+            }
+
+        })
+    }
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -37,9 +50,6 @@ class BlankFragment02 : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
-
-    private lateinit var viewModel: BlankViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,16 +62,6 @@ class BlankFragment02 : Fragment() {
         super.onActivityCreated(savedInstanceState)
     }
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-        viewModel = ViewModelProviders.of(activity as FragmentActivity).get(BlankViewModel::class.java)
-        viewModel.score.observe(activity as FragmentActivity,object :Observer<Int?>{
-            override fun onChanged(t: Int?) {
-                number_tv.text = t?.toString()
-            }
-
-        })
-    }
 
     override fun onResume() {
         super.onResume()

@@ -14,12 +14,17 @@ import kotlinx.android.synthetic.main.blank_fragment.*
 
 class BlankFragment01 : Fragment() {
 
+    private lateinit var viewModel: BlankViewModel
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        viewModel = ViewModelProviders.of(activity as FragmentActivity).get(BlankViewModel::class.java)
+
+    }
     companion object {
         fun newInstance() = BlankFragment01()
     }
 
-    private lateinit var viewModel: BlankViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,11 +45,6 @@ class BlankFragment01 : Fragment() {
         super.onActivityCreated(savedInstanceState)
     }
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-        viewModel = ViewModelProviders.of(activity as FragmentActivity).get(BlankViewModel::class.java)
-
-    }
 
     override fun onResume() {
         super.onResume()

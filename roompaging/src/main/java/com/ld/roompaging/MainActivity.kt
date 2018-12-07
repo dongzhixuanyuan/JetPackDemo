@@ -1,19 +1,18 @@
 package com.ld.roompaging
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
+import android.arch.lifecycle.*
 import android.arch.paging.PagedList
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import com.ld.roompaging.R.id.student_list
 import com.ld.roompaging.db.Student
 import com.ld.roompaging.db.StudentDb
 import com.ld.roompaging.paging.StudentPagelistAdapter
 import com.ld.roompaging.paging.StudentRepository
 import com.ld.roompaging.paging.StudentViewmodel
+import com.tantu.module.common.thread.UiThread
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +31,10 @@ class MainActivity : AppCompatActivity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         studentViewmodel.query("abc815")
+        UiThread.runLater({
+            studentViewmodel.updateItem(Student("abc815",100,"我的家"))
+        },3000)
+
     }
 
     private fun initviewmodel() {
@@ -46,7 +49,6 @@ class MainActivity : AppCompatActivity() {
             override fun onChanged(t: PagedList<Student>?) {
                 studentPagelistAdapter.submitList(t)
             }
-
         })
         student_list.adapter = studentPagelistAdapter
     }

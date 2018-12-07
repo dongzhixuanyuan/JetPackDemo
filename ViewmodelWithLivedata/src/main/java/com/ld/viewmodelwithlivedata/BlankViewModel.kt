@@ -9,5 +9,4 @@ class BlankViewModel : ViewModel() {
     var score = Transformations.map(number) {
             it?.times(10)
     }
-
 }

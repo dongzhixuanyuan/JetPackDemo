@@ -1,10 +1,7 @@
 package com.ld.roompaging.db
 
 import android.arch.paging.DataSource
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.OnConflictStrategy
-import android.arch.persistence.room.Query
+import android.arch.persistence.room.*
 
 @Dao
 interface StudentQueryDao {
@@ -14,4 +11,9 @@ interface StudentQueryDao {
 
     @Query("SELECT * FROM student WHERE name LIKE :queryName  ORDER BY number_column ASC")
     fun queryByName(queryName: String): DataSource.Factory<Int, Student>
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    fun updateStudentByName(student: Student)
+
+
 }
