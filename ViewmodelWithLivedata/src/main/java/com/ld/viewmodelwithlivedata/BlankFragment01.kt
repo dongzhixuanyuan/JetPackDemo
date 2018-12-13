@@ -1,5 +1,6 @@
 package com.ld.viewmodelwithlivedata
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.os.Bundle
@@ -20,6 +21,12 @@ class BlankFragment01 : Fragment() {
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         viewModel = ViewModelProviders.of(activity as FragmentActivity).get(BlankViewModel::class.java)
+        viewModel.number.observe(activity as FragmentActivity,object :Observer<Int>{
+            override fun onChanged(t: Int?) {
+                number_tv_01.setText(viewModel.number.value?.toString())
+            }
+        })
+
 
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -53,7 +60,6 @@ class BlankFragment01 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        number_tv_01.setText(viewModel.score.value?.toString())
     }
 
 }
