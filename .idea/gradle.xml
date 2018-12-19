@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/ViewModelDemo" />
             <option value="$PROJECT_DIR$/ViewmodelWithLivedata" />
             <option value="$PROJECT_DIR$/lib_common" />
+            <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/roompaging" />
           </set>
         </option>

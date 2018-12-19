@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         StudentRepository.instance(context = applicationContext).addStudents(generateTest())
         initadapter()
         initviewmodel()
-        int2string(arrayListOf(1))
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
@@ -59,12 +58,6 @@ class MainActivity : AppCompatActivity() {
         student_list.layoutManager = LinearLayoutManager(this)
     }
 
-    private fun int2string(list: List<Int>): String {
-        val a = 1
-        val c: Char = a.toString().toCharArray()[0]
-        Log.d(javaClass.simpleName, c.toInt().toString())
-        return ""
-    }
 
     private fun generateTest(): List<Student> {
         var list = arrayListOf<Student>()

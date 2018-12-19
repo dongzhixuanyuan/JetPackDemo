@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/test_navi"
+    app:startDestination="@id/home_dest">
+    <fragment
+        android:id="@+id/home_dest"
+        android:name="com.ld.navigation.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_dest_to_fragment_01"
+            app:destination="@id/fragment_01"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popUpTo="@id/home_dest" />
+        <action
+            android:id="@+id/action_home_dest_to_fragment_02"
+            app:destination="@id/fragment_02"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/fade_out"
+            app:popUpTo="@id/home_dest" />
+        <action
+            android:id="@+id/action_home_dest_to_fragment_03"
+            app:destination="@id/fragment_03"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popUpTo="@id/home_dest" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/fragment_01"
+        android:name="com.ld.navigation.Fragment01"
+        android:label="Fragment01"
+        tools:layout="@layout/fragment_fragment01">
+        <argument
+            android:name="flowStepNumber"
+            android:defaultValue="1"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_02"
+        android:name="com.ld.navigation.Fragment02"
+        android:label="Fragment02"
+        tools:layout="@layout/fragment_fragment02"></fragment>
+
+    <fragment
+        android:id="@+id/fragment_03"
+        android:name="com.ld.navigation.Fragment03"
+        android:label="Fragment03"
+        tools:layout="@layout/fragment_fragment03">
+
+
+    </fragment>
+
+</navigation>
