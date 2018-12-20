@@ -14,19 +14,30 @@
             app:destination="@id/fragment_01"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
-            app:popUpTo="@id/home_dest" />
+            app:launchSingleTop="true"
+            app:popUpTo="@id/home_dest" >
+            <argument
+                android:name="flowStepNumber"
+                android:defaultValue="2" />
+        </action>
         <action
             android:id="@+id/action_home_dest_to_fragment_02"
             app:destination="@id/fragment_02"
             app:enterAnim="@anim/slide_in_left"
             app:exitAnim="@anim/fade_out"
+            app:launchSingleTop="true"
             app:popUpTo="@id/home_dest" />
         <action
             android:id="@+id/action_home_dest_to_fragment_03"
             app:destination="@id/fragment_03"
             app:enterAnim="@anim/slide_in_right"
+            app:launchSingleTop="true"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popUpTo="@id/home_dest" />
+        <argument
+            android:name="what_fuck"
+            android:defaultValue="1"
+            app:argType="integer" />
     </fragment>
 
 
@@ -39,6 +50,7 @@
             android:name="flowStepNumber"
             android:defaultValue="1"
             app:argType="integer" />
+        <action android:id="@+id/action_fragment_01_to_fragment_02" app:destination="@id/fragment_02" app:popUpTo="@id/fragment_01" />
     </fragment>
 
     <fragment

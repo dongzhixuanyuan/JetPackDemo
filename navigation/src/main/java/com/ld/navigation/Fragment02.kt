@@ -1,11 +1,14 @@
 package com.ld.navigation
 
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.support.v7.app.AppCompatActivity
+import android.view.*
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.onNavDestinationSelected
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -23,9 +26,31 @@ class Fragment02 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setHasOptionsMenu(true)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment02, container, false)
+        var view = inflater.inflate(R.layout.fragment_fragment02, container, false)
+        activity?.actionBar?.setHomeButtonEnabled(true)
+        return view
     }
 
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        activity?.menuInflater?.inflate(R.menu.flow_menu,menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return item?.onNavDestinationSelected(findNavController())?: false
+                ||super.onOptionsItemSelected(item)
+    }
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        NavigationUI.setupActionBarWithNavController(activity as AppCompatActivity, findNavController())
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
 
 }
