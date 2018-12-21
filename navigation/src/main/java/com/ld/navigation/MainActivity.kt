@@ -14,6 +14,7 @@ import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.coroutines.CoroutineContext
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,4 +47,8 @@ class MainActivity : AppCompatActivity() {
         return item?.onNavDestinationSelected(findNavController(R.id.nav_host_fragment)) ?: false
                 || super.onOptionsItemSelected(item)
     }
+
+     fun test(){
+
+     }
 }

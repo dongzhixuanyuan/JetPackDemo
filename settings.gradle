@@ -1,1 +1,1 @@
-include ':ViewModelDemo', ':ViewmodelWithLivedata', ':roompaging', ':lib_common', ':navigation'
+include ':ViewModelDemo', ':ViewmodelWithLivedata', ':roompaging', ':lib_common', ':navigation', ':workmanager'

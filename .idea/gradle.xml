@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/lib_common" />
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/roompaging" />
+            <option value="$PROJECT_DIR$/workmanager" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
